@@ -136,8 +136,8 @@ def _888_to_565(bt):
 
 def numpy_888_565(bt):
     import numpy as np
-    arr = np.fromstring(bt, dtype=np.uint32)
-    return (((0xF80000 & arr) >> 8) | ((0xFC00 & arr) >> 5) | ((0xF8 & arr) >> 3)).astype(np.uint16).tostring()
+    arr = np.frombuffer(bt, dtype=np.uint32)
+    return (((0xF80000 & arr) >> 8) | ((0xFC00 & arr) >> 5) | ((0xF8 & arr) >> 3)).astype(np.uint16).tobytes()
 
 
 def show_img(img):
